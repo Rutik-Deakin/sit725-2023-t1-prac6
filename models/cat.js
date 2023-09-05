@@ -6,8 +6,12 @@ function postCat(data, callback) {
     collection.insertOne(data, callback)
 }
 
-async function getAllCats(callback) {
+function getAllCats(callback) {
     collection.find({}).toArray(callback);   
 }
 
-module.exports = {postCat, getAllCats}
+function deleteOne(id, callback) {
+    collection.deleteOne({_id: id}, callback);
+}
+
+module.exports = {postCat, getAllCats, deleteOne}
